@@ -1,12 +1,20 @@
 <script setup>
-import { ref } from 'vue';
-import VueTutorialComponent from '@/components/VueTutorialComponent.vue';
 
-const greeting = ref('Hello from parent');
-const childMsg = ref('No child msg yet');
 </script>
 <template>
-    <p>{{childMsg}}</p>
-    <VueTutorialComponent v-on:response="(msg) => childMsg = msg" :msg="greeting" />
+    <p><span>Current route path:</span> {{ $route.fullPath }}</p>
+    <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/vue-tutorial">Vue tutorial</RouterLink>
+        <RouterLink to="/dashboard">Dashboard</RouterLink>
+    </nav>
+    <main>
+        <RouterView />
+    </main>
 </template>
 
+<style>
+a {
+    margin: .5rem;
+}
+</style>
