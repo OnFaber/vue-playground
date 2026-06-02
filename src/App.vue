@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup>
+import { ref } from 'vue';
+import VueTutorialComponent from '@/components/VueTutorialComponent.vue';
 
+const greeting = ref('Hello from parent');
+const childMsg = ref('No child msg yet');
+</script>
 <template>
-    <h1>Hello world!</h1>
+    <p>{{childMsg}}</p>
+    <VueTutorialComponent v-on:response="(msg) => childMsg = msg" :msg="greeting" />
 </template>
 
-<style scoped></style>
